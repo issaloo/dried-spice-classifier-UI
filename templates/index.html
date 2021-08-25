@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/> 
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+        <title>Dried Spice Identifier</title>
+    </head>
+    <body>
+        <header>
+            <h1>Dried Spice Identifier</h1>
+        </header>
+        <main>
+            <div id="instruction-container">
+                <div>
+                    <p>Instructions:</p>
+                    <ol>
+                        <li>Upload an image (.jpg or .png only)</li>
+                        <li>Press submit for a prediction </li>
+                    </ol>
+                </div>
+			</div>
+            <div id="pred-container">
+                <p>{{ class_pred }}</p>
+            </div>
+            <form method="POST" action="/" enctype="multipart/form-data">
+                <input type="file" accept="image/*" name="file" id="uploader"/>
+                <div id="img-container"></div>
+                <input type="submit" id="submit" value="Submit" />
+            </form>
+        </main>
+        <footer>
+            <p>&copy;2021 by DriedSpiceIdentifier. All Rights Reserved.</p>
+        </footer>
+        <script>
+            let uploader = document.querySelector("#uploader")
+            let imgContainer = document.querySelector("#img-container")
+            let submit = document.querySelector("#submit")
+
+            function handleImage(e){
+                if (imgContainer.firstChild){
+                    imgContainer.removeChild(imgContainer.firstChild)
+                }
+                let img = document.createElement("img")
+                img.src = URL.createObjectURL(e.target.files[0])
+                img.height = "200"
+                imgContainer.appendChild(img)
+            }
+
+            uploader.addEventListener("change", handleImage)
+        </script>
+    </body>
+</html>
