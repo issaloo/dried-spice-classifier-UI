@@ -17,9 +17,9 @@ app = Flask(__name__)
 app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png']
 
 # Initialize prediction models and labels
-feat_extract = load_model('static/feat_extract.h5')
-rf_model = pickle.load(open('static/rf_model.pkl', 'rb'))
-svm_model = pickle.load(open('static/svm_model.pkl', 'rb'))
+# feat_extract = load_model('static/feat_extract.h5')
+# rf_model = pickle.load(open('static/rf_model.pkl', 'rb'))
+# svm_model = pickle.load(open('static/svm_model.pkl', 'rb'))
 cnn_model = load_model('static/cnn_model.h5')
 class_labels = ['Dried Basil', 'Dried Oregano', 'Dried Parsley', 'Dried Thyme', 'Not a Spice']
 
@@ -45,11 +45,12 @@ def upload_file():
             array_img = np.expand_dims(array_img, axis=0)
 
             # Extract features, predict with the three models, and final ensemble prediction
-            extracted_feat = feat_extract(array_img)
-            rf_pred = rf_model.predict_proba(extracted_feat)
-            svm_pred = svm_model.predict_proba(extracted_feat)
+            # extracted_feat = feat_extract(array_img)
+            # rf_pred = rf_model.predict_proba(extracted_feat)
+            # svm_pred = svm_model.predict_proba(extracted_feat)
             cnn_pred = cnn_model.predict(array_img)
-            pred = cnn_pred*2 + rf_pred + svm_pred
+            # pred = cnn_pred*2 + rf_pred + svm_pred
+            pred = cnn_pred
 
             # Convert numerical prediction to string
             class_pred = class_labels[np.argmax(pred)]
