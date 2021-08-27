@@ -65,6 +65,14 @@ footer{
     width: 100%;
 }
 
+#img-container{
+    align-items: center;
+    display: flex;
+    height: 200px;
+    margin: 0 auto;
+    width: auto;
+}
+
 #instruction-container{
     height: 90px;
     align-items: left;
@@ -78,12 +86,4 @@ footer{
 
 #pred-container{
     height: 50px;
-}
-
-#img-container{
-    align-items: center;
-    display: flex;
-    height: 200px;
-    margin: 0 auto;
-    width: auto;
 }
