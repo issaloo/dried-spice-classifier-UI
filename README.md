@@ -9,4 +9,4 @@ Backend models are not saved in this repository due to exceeding Github's file s
 - HTML
 - CSS
 
-See [Dried Spice Classifier ML Repository](https://github.com/issaloo/dried-spice-classifier-UI) for model details.\
+See [Dried Spice Classifier ML Repository](https://github.com/issaloo/dried-spice-classifier-UI) for model details.
