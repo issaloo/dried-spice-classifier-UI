@@ -4,7 +4,7 @@ Deployed the Dried Spice Classifier via Heroku ([Dried Spice Classifer UI](https
 
 Backend models are not saved in this repository due to exceeding Github's file size limits.
 
-## Technologies:
+## Technologies
 - Python (Flask)
 - HTML
 - CSS
